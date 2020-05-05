@@ -14,8 +14,7 @@ int main()
         *(a+c)+=g;
         if(d+1<=n){
             *(a+d+1)-=g;
-        }
-        
+        }  
     }
     for(i=1;i<=n;i++){
         x+=*(a+i);
@@ -24,5 +23,6 @@ int main()
         }
     }
     printf("%lld",max);
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
     return 0;
 }
