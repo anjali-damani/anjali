@@ -1,0 +1,39 @@
+// Complete the checkMagazine function below.
+    static void checkMagazine(String[] magazine, String[] note) 
+    {
+        Map<String,Integer>m=new LinkedHashMap<String,Integer>();
+        Map<String,Integer>n=new LinkedHashMap<String,Integer>();
+        int i,f=1;
+        for(String st:magazine)
+        {
+           if(!m.containsKey(st))
+            m.put(st,0);
+            else
+            m.put(st,m.get(st)+1);
+        }
+        for(String st:note)
+        {
+           if(!n.containsKey(st))
+            n.put(st,0);
+            else
+            n.put(st,n.get(st)+1);
+        }
+        for(String g:n.keySet())
+        {
+            if(!m.containsKey(g))
+            { f=0;break;}
+             int l=n.get(g);
+             if(m.get(g)<l)
+             {f=0;break;}
+             
+        }
+        if(f==0)
+        {
+            System.out.println("No");
+        }
+        else
+       {
+       System.out.println("Yes");
+       }
+
+    }
