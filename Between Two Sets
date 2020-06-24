@@ -1,0 +1,27 @@
+ public static int getTotalX(List<Integer> a, List<Integer> b)
+ {
+    int i,j,k,c=0;boolean f=true;boolean g=true;
+    for(i=a.get(a.size()-1);i<=b.get(0);i++)
+    {
+        f=true;g=true;
+        for(j=0;j<a.size();j++) //checking factor 
+        {
+            if(i%a.get(j)!=0)
+            {
+                f=false;
+                break;
+            }
+        }
+        for(k=0;k<b.size();k++)
+        {
+            if(f && (b.get(k)%i!=0))
+            {
+                g=false;
+                break;
+            }
+        }
+        if(f==true && g==true)
+         {System.out.println(i);c++;}
+    }
+    return c;
+ }
