@@ -1,0 +1,51 @@
+//using a stack to store half of the elements and then traversing from middle of the list and cheching that data is equivalent to top of stack(followed by pop operation).If not equal come out of loop.
+class Palindrome
+{
+    // Function to check if linked list is palindrome
+    boolean isPalindrome(Node head) 
+    {
+        //Your code here
+        Stack<Integer>s=new Stack<Integer>();
+        Node fast=head;
+        Node slow=head;
+        int f=0;int c=0;
+        while(slow!=null)
+        {
+            c++;
+            slow=slow.next;
+        }
+        slow =head;
+        if(c==2)
+        {
+            if(slow.data==slow.next.data)
+            return true;
+            else
+            return false;
+        }
+        while(fast!=null && fast.next!=null)
+        {
+            fast=fast.next.next;
+            s.push(slow.data);
+            slow=slow.next;
+        }
+        if(c%2!=0)
+        slow=slow.next;
+        while(slow!=null)
+        {
+            if(slow.data==s.peek())
+            {
+                s.pop();
+            }
+            else
+            {
+                f=1;
+                break;
+            }
+            slow=slow.next;
+        }
+        if(f==1)
+        return false;
+        else
+        return true;
+    }    
+}
