@@ -1,0 +1,33 @@
+public class Solution {
+    public int[] plusOne(int[] A) {
+        int i=0;
+        int carry=0;
+        int n=A.length;
+        int t=A[n-1];
+        t=t+1;
+        A[n-1]=t%10;
+        carry=t/10;
+        for(i=n-2;i>=0;i--)
+        {
+            int r=(A[i]+carry);
+            A[i]=r%10;
+            carry=r/10;
+        }
+        if(carry==1)
+        System.out.print(1+" ");
+        int ind=0;
+        for(i=0;i<n;i++)
+        {
+            if(A[i]!=0)
+            {
+                ind=i;
+                break;
+            }
+        }
+        int b[]=new int[n-ind];
+        for(i=0;i<n-ind;i++)
+        b[i]=A[ind+i];
+        return b;
+        
+    }
+}
