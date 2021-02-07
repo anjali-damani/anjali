@@ -1,0 +1,30 @@
+class Solution
+{
+    public int[] shortestToChar(String s, char c) 
+    {
+        int a[]=new int[s.length()];
+        ArrayList<Integer>al=new ArrayList<Integer>();
+        int i=0;
+        while(i!=-1)
+        {
+            i=s.indexOf(c,i);
+            if(i!=-1)
+            {    
+                al.add(i);
+                i++;
+            }
+            
+        }
+        i=0;
+        while(i<s.length())
+        {
+            int min=Integer.MAX_VALUE;
+            for(int k:al)
+            {
+                min=Math.min(min,Math.abs(k-i));
+            }
+            a[i++]=min;
+        }
+        return a;
+    }
+}
